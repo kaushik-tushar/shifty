@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        legend {
+            background-color: rgb(0, 42, 255);
+            color: white;
+            padding: 5px 10px;
+        
+        }
+
+        fieldset {
+            background-color: #eeeeee;
+            
+        }
+
+        input {
+            margin: 20px;
+            padding: 7px;
+        }
+        
+
+      
+
+    </style>
+</head>
+<body>
+    <h1>
+        <b>Plaintext To Hash Generator</b></h1>
+    <br>
+    <br>
+    <fieldset>
+        <legend>Hash Generator</legend>
+        <br>
+        <br>
+        
+        <form method="post">
+            <label for="hash"> <b>PLAIN TEXT :</b></label>
+            <br>
+            <br>
+            <input type="text" name="text" id="hash" placeholder="Enter text" required>
+            <br>
+            <br>
+            <label for="hashalgo"> <b>CHOOSE HASH ALGORITHM :</b></label>
+            <br>
+            <br>
+            <select name="algorithm" id="hashalgo" required>
+                <option value="md5">MD5</option>
+                <option value="sha256">SHA-256</option>
+                <option value="sha1">sha1</option>
+                <option value="sha384">SHA-384</option>
+                <option value="sha512">SHA-512</option>
+                <option value="sha3_512">sha3_512</option>
+                <option value="blake2s">blake2s</option>
+                <option value="sha224">sha224</option>
+                <option value="shake_128">shake_128</option>
+                <option value="sha3_256">sha3_256</option>
+                <option value="blake2b">blake2b</option>
+                <option value="sha3_384">sha3_384</option>
+                <option value="sha3_224">sha3_224</option>
+            </select>
+    
+            <br>
+            <br>
+            <button  style=
+            "background-color: rgb(0, 42, 255); 
+            color: white;" onclick="colorFn(this)"type="submit"> <b>Generate Hash </b></button>
+        </form>
+        <br>
+        
+        {% if hash_result %}
+        <div class="result">
+            <p style="color: blue;"><strong>Hash For Given Text:</strong> {{ hash_result }}</p>
+        </div>
+        {% endif %}
+    
+        
+    </fieldset>
+    
+</body>
+</html>
